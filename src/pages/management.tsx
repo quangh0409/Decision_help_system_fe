@@ -13,7 +13,7 @@ import { getAssignments } from "../api/assignment.api";
 import { IAssignment } from "../models/api/assignments";
 type Props = {};
 
-const Home = (props: Props) => {
+const Management = (props: Props) => {
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
     padding: 0,
@@ -59,11 +59,15 @@ const Home = (props: Props) => {
           </Grid>
         </Grid>
         <Grid item xs={6}>
-          <BasicTabs teachers={teachers} projects={projects} assignments={assignments} />
+          <BasicTabs
+            teachers={teachers}
+            projects={projects}
+            assignments={assignments}
+          />
         </Grid>
       </Grid>
     </Box>
   );
 };
 
-export default Home;
+export default Management;

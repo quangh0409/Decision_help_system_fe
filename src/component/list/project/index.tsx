@@ -30,10 +30,6 @@ interface Data {
   code: string;
 }
 
-function createData(name: string, code: string): Data {
-  return { name, code };
-}
-
 function ListProject(props: { projects: IProject[] }) {
   const { projects } = props;
   const [page, setPage] = React.useState(0);
