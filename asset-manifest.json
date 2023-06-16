@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/Decision_help_system/static/css/main.130b8624.css",
+    "main.js": "/Decision_help_system/static/js/main.8e4a78f9.js",
+    "static/js/787.7066aac0.chunk.js": "/Decision_help_system/static/js/787.7066aac0.chunk.js",
+    "index.html": "/Decision_help_system/index.html",
+    "main.130b8624.css.map": "/Decision_help_system/static/css/main.130b8624.css.map",
+    "main.8e4a78f9.js.map": "/Decision_help_system/static/js/main.8e4a78f9.js.map",
+    "787.7066aac0.chunk.js.map": "/Decision_help_system/static/js/787.7066aac0.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.130b8624.css",
+    "static/js/main.8e4a78f9.js"
+  ]
+}
