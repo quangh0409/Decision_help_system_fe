@@ -10,7 +10,7 @@ import { useSelector } from "react-redux";
 import { CounterState } from "../hook/slice";
 import { getProjects } from "../api/project.api";
 import { getAssignments } from "../api/assignment.api";
-import { IAssignment } from "../models/api/assignments";
+import { IArray_Assignment, IAssignment } from "../models/api/assignments";
 type Props = {};
 
 const Management = (props: Props) => {
@@ -23,7 +23,10 @@ const Management = (props: Props) => {
   }));
   const [teachers, setTeachers] = useState<ITeacher[]>([]);
   const [projects, setProjects] = useState<IProject[]>([]);
-  const [assignments, setAssignments] = useState<IAssignment[]>([]);
+  const [assignments, setAssignments] = useState<IArray_Assignment>({
+    array: [],
+    assignment: [],
+  });
   const load: boolean = useSelector((state: CounterState) => state.load);
   useEffect(() => {
     const fetchTeachers = async () => {
@@ -62,7 +65,7 @@ const Management = (props: Props) => {
           <BasicTabs
             teachers={teachers}
             projects={projects}
-            assignments={assignments}
+            assignments={assignments.assignment}
           />
         </Grid>
       </Grid>

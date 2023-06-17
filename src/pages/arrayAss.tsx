@@ -13,12 +13,21 @@ import { ITeacher } from "../models/api/teacher";
 
 interface Props {}
 
-function ArrayT_P(props: {
-  projects: IProject[];
-  teachers: ITeacher[];
-  arrayT_P: number[][];
-}) {
-  const { projects, teachers, arrayT_P } = props;
+interface Column {
+  id: "name";
+  label: string;
+  minWidth?: number;
+  align?: "right";
+  format?: (value: number) => string;
+}
+
+interface Data {
+  name: string;
+  code: string;
+}
+
+function ArrayAss(props: { teachers: ITeacher[]; arrayAss: number[][] }) {
+  const { teachers, arrayAss } = props;
 
   return (
     <Box id="table_project" sx={{ width: "100%", maxHeight: "100vh" }}>
@@ -31,7 +40,7 @@ function ArrayT_P(props: {
                 align={"right"}
                 style={{
                   // top: 57,
-                  minWidth: 70,
+                  minWidth: 30,
                 }}
               ></TableCell>
 
@@ -50,7 +59,7 @@ function ArrayT_P(props: {
             </TableRow>
           </TableHead>
           <TableBody>
-            {arrayT_P.map((a, idx) => {
+            {arrayAss.map((a, idx) => {
               return (
                 <TableRow
                   hover
@@ -63,20 +72,20 @@ function ArrayT_P(props: {
                     align={"right"}
                     style={{
                       // top: 57,
-                      minWidth: 70,
+                      minWidth: 30,
                       padding: 0,
                     }}
                   >
-                    {"p" + idx}
+                    {idx === arrayAss.length - 1 ? "total" : "p" + idx}
                   </TableCell>
-                  {teachers.map((t, index) => {
+                  {a.map((as, index) => {
                     return (
                       <TableCell
                         key={Math.random()}
                         align={"center"}
                         style={{ padding: 0 }}
                       >
-                        {a[index]}
+                        {as}
                       </TableCell>
                     );
                   })}
@@ -90,6 +99,6 @@ function ArrayT_P(props: {
   );
 }
 
-ArrayT_P.propTypes = {};
+ArrayAss.propTypes = {};
 
-export default ArrayT_P;
+export default ArrayAss;

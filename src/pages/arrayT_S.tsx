@@ -21,53 +21,17 @@ interface Column {
   format?: (value: number) => string;
 }
 
-const columns: Column[] = [
-  { id: "name", label: "IT1", minWidth: 70 },
-  { id: "name", label: "IT2", minWidth: 70 },
-  { id: "name", label: "IT3", minWidth: 70 },
-  { id: "name", label: "IT4", minWidth: 70 },
-  { id: "name", label: "IT5", minWidth: 70 },
-  { id: "name", label: "IT6", minWidth: 70 },
-  { id: "name", label: "IT7", minWidth: 70 },
-  { id: "name", label: "IT8", minWidth: 70 },
-  { id: "name", label: "IT9", minWidth: 70 },
-  { id: "name", label: "IT10", minWidth: 70 },
-  { id: "name", label: "IT11", minWidth: 70 },
-  { id: "name", label: "IT12", minWidth: 70 },
-  { id: "name", label: "IT14", minWidth: 70 },
-  { id: "name", label: "IT15", minWidth: 70 },
-  { id: "name", label: "IT15", minWidth: 70 },
-];
-
 interface Data {
   name: string;
   code: string;
 }
 
-function ArrayT_S(props: { teachers: ITeacher[] }) {
-  const { teachers } = props;
-  const array: number[][] = [
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-    [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
-  ];
+function ArrayT_S(props: {
+  teachers: ITeacher[];
+  arrayT_S: number[][];
+  SPECIALIZE: string[];
+}) {
+  const { teachers, arrayT_S, SPECIALIZE } = props;
 
   return (
     <Box id="table_project" sx={{ width: "100%", maxHeight: "100vh" }}>
@@ -82,24 +46,24 @@ function ArrayT_S(props: { teachers: ITeacher[] }) {
                   // top: 57,
                   minWidth: 70,
                 }}
-              ></TableCell>
+              >Giáo viên</TableCell>
 
-              {columns.map((column) => (
+              {SPECIALIZE.map((s) => (
                 <TableCell
                   key={Math.random()}
                   align={"center"}
                   style={{
                     // top: 57,
-                    minWidth: column.minWidth,
+                    minWidth: 70,
                   }}
                 >
-                  {column.label}
+                  {s}
                 </TableCell>
               ))}
             </TableRow>
           </TableHead>
           <TableBody>
-            {array.map((a, idx) => {
+            {arrayT_S.map((a, idx) => {
               return (
                 <TableRow
                   hover
@@ -116,9 +80,9 @@ function ArrayT_S(props: { teachers: ITeacher[] }) {
                       padding: 0,
                     }}
                   >
-                    {teachers[idx].id}
+                    {teachers[idx].email}
                   </TableCell>
-                  {columns.map((column, index) => {
+                  {SPECIALIZE.map((column, index) => {
                     return (
                       <TableCell
                         key={Math.random()}

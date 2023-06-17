@@ -5,6 +5,11 @@ export interface IAssignment {
   project: IProjectAss[];
 }
 
+export interface IArray_Assignment {
+  array: number[][];
+  assignment: IAssignment[];
+}
+
 export interface IProjectAss {
   name: string;
   specialize: string;
