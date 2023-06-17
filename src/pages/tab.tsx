@@ -48,7 +48,16 @@ function a11yProps(index: number) {
     "aria-controls": `simple-tabpanel-${index}`,
   };
 }
-
+export const SPECIALIZE: string[] = [
+    "IT1",
+    "IT2",
+    "CH1",
+    "CH2",
+    "BF1",
+    "BF2",
+    "EE1",
+    "EE2",
+];
 export default function HomeTabs() {
   const [value, setValue] = React.useState(0);
 
@@ -57,6 +66,7 @@ export default function HomeTabs() {
   };
   const [teachers, setTeachers] = React.useState<ITeacher[]>([]);
   const [projects, setProjects] = React.useState<IProject[]>([]);
+  const [arrayP_S, setArrayP_S] = React.useState<number[][]>([]);
   const [assignments, setAssignments] = React.useState<IAssignment[]>([]);
   const load: boolean = useSelector((state: CounterState) => state.load);
   React.useEffect(() => {
