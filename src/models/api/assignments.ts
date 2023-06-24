@@ -12,6 +12,8 @@ export interface IArray_Assignment {
 
 export interface IProjectAss {
   name: string;
+  teacher_name: string;
+  teacher_email: string;
   specialize: string;
   coincidence: number;
 }

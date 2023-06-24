@@ -13,7 +13,7 @@ import { IProject } from "../../../models/api/project";
 interface Props {}
 
 interface Column {
-  id: "name" | "specialize";
+  id: "name" | "specialize" | "teacher_name" | "teacher_email";
   label: string;
   minWidth?: number;
   align?: "right";
@@ -23,6 +23,8 @@ interface Column {
 const columns: Column[] = [
   { id: "name", label: "Tên đồ án", minWidth: 170 },
   { id: "specialize", label: "Chuyên môn", minWidth: 100 },
+  { id: "teacher_name", label: "Giáo viên hướng dẫn", minWidth: 100 },
+  { id: "teacher_email", label: "Email", minWidth: 100 },
 ];
 
 interface Data {
@@ -38,7 +40,6 @@ function ListProject(props: { projects: IProject[] }) {
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
-  console.log(projects);
   const handleChangeRowsPerPage = (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {

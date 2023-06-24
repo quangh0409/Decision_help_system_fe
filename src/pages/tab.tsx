@@ -108,7 +108,6 @@ export default function HomeTabs() {
     fetchArrayT_S();
     fetchArrayT_P();
   }, [load]);
-  console.log("arrayP_S", arrayP_S[0]);
   return (
     <Box sx={{ width: "100%" }}>
       <Box sx={{ borderBottom: 1, borderColor: "divider" }}>

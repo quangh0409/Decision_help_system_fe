@@ -50,7 +50,6 @@ export default function BasicTabs(props: {
   assignments: IAssignment[];
 }) {
   const { teachers, projects, assignments } = props;
-  console.log("assignments", assignments);
   const value: number = useSelector((state: CounterState) => state.value);
 
   const dispatch = useDispatch();
@@ -78,7 +77,7 @@ export default function BasicTabs(props: {
         <CollapsibleTableTeacher teachers={teachers} />
       </TabPanel>
       <TabPanel key={"tab3"} value={value} index={2}>
-        <CollapsibleTableAssignment assignments={assignments} />
+        <CollapsibleTableAssignment assignments={assignments}  />
       </TabPanel>
     </Box>
   );

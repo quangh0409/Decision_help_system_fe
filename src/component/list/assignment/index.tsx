@@ -16,8 +16,8 @@ import { TablePagination } from "@mui/material";
 import { ITeacher } from "../../../models/api/teacher";
 import { IAssignment } from "../../../models/api/assignments";
 
-function Row(props: { row: IAssignment }) {
-  const { row } = props;
+function Row(props: { row: IAssignment , p_idx: number}) {
+  const { row, p_idx } = props;
   const [open, setOpen] = React.useState(false);
 
   return (
@@ -57,6 +57,7 @@ function Row(props: { row: IAssignment }) {
                     <TableCell>Tên đồ án</TableCell>
                     <TableCell>Tên chuyên môn</TableCell>
                     <TableCell>Độ phù hợp</TableCell>
+                    <TableCell>Giáo viên hướng dẫn</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -67,6 +68,7 @@ function Row(props: { row: IAssignment }) {
                       </TableCell>
                       <TableCell>{p.specialize}</TableCell>
                       <TableCell>{p.coincidence}</TableCell>
+                      <TableCell>{p.teacher_name}</TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -85,7 +87,6 @@ export default function CollapsibleTableAssignment(props: {
   const { assignments } = props;
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
-  console.log(assignments);
   const handleChangePage = (event: unknown, newPage: number) => {
     setPage(newPage);
   };
@@ -111,8 +112,8 @@ export default function CollapsibleTableAssignment(props: {
           <TableBody>
             {assignments
               .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
-              .map((assignment) => (
-                <Row key={Math.random()} row={assignment} />
+              .map((assignment, i) => (
+                <Row key={Math.random()} row={assignment} p_idx={i}/>
               ))}
           </TableBody>
         </Table>

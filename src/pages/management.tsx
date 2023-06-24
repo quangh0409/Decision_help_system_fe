@@ -51,12 +51,12 @@ const Management = (props: Props) => {
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
         <Grid item xs={6} sx={{ padding: 0 }}>
           <Grid item xs={12}>
-            <Item sx={{ height: "30vh" }}>
+            <Item sx={{ height: "30vh", minHeight: "300px" }}>
               <Project />
             </Item>
           </Grid>
           <Grid item xs={12}>
-            <Item sx={{ height: "70vh" }}>
+            <Item sx={{ height: "70vh", minHeight: "300px" }}>
               <Teacher />
             </Item>
           </Grid>

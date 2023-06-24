@@ -11,8 +11,8 @@ import React, { useEffect, useState } from "react";
 import { ISpecialize, ITeacher } from "../../models/api/teacher";
 import AddIcon from "@mui/icons-material/Add";
 import { createTeacher, getTeachers } from "../../api/teacher.api";
-import { useDispatch } from "react-redux";
-import { setLoading, setValue } from "../../hook/slice";
+import { useDispatch, useSelector } from "react-redux";
+import { CounterState, setLoading, setValue } from "../../hook/slice";
 interface Props {
   // handleTeacher: (load: Boolean, _value: number) => void;
   // handleLoad: (load: Boolean) => void;
@@ -33,6 +33,7 @@ const Teacher = (props: Props) => {
     },
   ]);
   const [change, setChange] = useState<Boolean>(false);
+  const load: boolean = useSelector((state: CounterState) => state.load);
 
   const Item = styled(Paper)(({ theme }) => ({
     ...theme.typography.body2,
@@ -50,7 +51,8 @@ const Teacher = (props: Props) => {
   }, [change]);
 
   const handleCreate = async (teacher: ITeacher) => {
-    await createTeacher(teacher);
+    const res = await createTeacher(teacher);
+    console.log(res);
   };
 
   return (
@@ -193,7 +195,7 @@ const Teacher = (props: Props) => {
                           coincidence: 0,
                         },
                       ]);
-                      dispatch(setLoading(true));
+                      dispatch(setLoading(!load));
                       dispatch(setValue(1));
                     }}
                   >

@@ -17,7 +17,6 @@ function ArrayP_S(props: {
   SPECIALIZE: string[];
 }) {
   const { projects, arrayP_S, SPECIALIZE } = props;
-  console.log(arrayP_S);
 
   return (
     <>
